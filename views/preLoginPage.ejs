@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        body {
+            background-color: #98c0b5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-y: scroll; /* Adds vertical scrollbar */
+        }
+        .navbar {
+            background-color:  #28846b;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .navbar img {
+            height: 80px;
+            margin-left: 30px;
+        }
+        .navbar button {
+            background-color: #98c0b5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .navbar button:hover {
+            background-color: #6c9c8f ;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container img {
+            height: 250px;
+            padding-bottom: 10px;
+            padding-top: 30px;
+        }
+        h2 {
+            text-align: center;
+            padding: 0 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .buttons button {
+            background-color: #28846b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .buttons button:hover {
+            background-color: #1e6451;
+        }
+        hr {
+            width: 100%;
+            color:  #28846b;
+            margin-top: 40px;
+        }
+        .picture-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+        }
+        .picture-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            width: 80%;
+        }
+        .picture-item img {
+            height: 300px;
+            width: 300px;
+        }
+        .picture-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        .picture-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .picture-item p {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .textalign{
+            flex-direction:column ;
+            margin-left: 15%;
+        }
+        .textalign2{
+            flex-direction: column;
+            margin-right: 15%;
+        }
+        .textalign3{
+            flex-direction:column ;
+            margin-left: 1%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="/navBarLogo.png">
+        <button onclick="window.location.href='/signup'">Get Started</button>
+    </div>
+    <div class="container">
+        <img src="Logo2.jpg">
+        <pre><h2>Unlock the secrets of programming language mastery 
+with a fun, free and efficient method!!</pre></h2>
+        <div class="buttons">
+            <button onclick="window.location.href='/signup'">Sign Up</button>
+            <button onclick="window.location.href='/loginPage'">Login</button>
+        </div>
+        <hr>
+        <div class="picture-container">
+            <div class="picture-item">
+                <img src="/logoresize.gif" width="480" height="269"frameBorder="0"  allowFullScreen></iframe>
+                
+                <div class="textalign3">
+                <h2>Free~Fun~Efficient</h2>
+                <pre><h3>
+                    Isn't it just thrilling to learn programming languages in a playful manner? 
+                    Kode turns the grind into a game, shaping your career 
+                    without the snooze-fest. If you’re an aspiring programmer or developer, 
+                    Kode is the fun way to stop pretending you know what you're 
+                    doing and start actually knowing it!
+                </h3></pre>
+                </div>
+                
+                  
+                
+            </div>
+            <div class="picture-item">
+                <img src="/videohomepage.gif" alt="Placeholder Image 2">
+                <div class="textalign2">
+                    <h2>
+                        "Code with Animated Flair!"</h2>
+                        <pre><h3> We use a combination of animated teaching methods and 
+exciting content to create courses that proficiently 
+teach logical thinking and programming skills.</h3></pre>
+                </div>
+             
+            </div>
+            <div class="picture-item">
+                <img src="/Gamespagehome.gif" alt="Placeholder Image 3">
+                <div class="textalign">
+                    <h2>"Gameify Your Learning!"</h2>
+                    <pre><h3>We use a combination of animated teaching methods and 
+ exciting content to create courses that proficiently 
+teach logical thinking and programming skills.</h3></pre>
+                </div>
+                
+            </div>
+            <div class="picture-item">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/200e8d139737079.6234b0487404d.gif" width="100" height="300"
+                alt="Placeholder Image 4">
+                <div class="textalign2">
+                    <pre><h2>"Chatbot: Your Learning Buddy!"</h2></pre>
+                    <pre><h3>Who needs human interaction when you can chat 
+with our oh-so-helpful chatbot, powered by ChatGPT? 
+Say goodbye to pesky doubts and hello to the 
+joy of automated assistance!</h3></pre>
+                </div>
+                <div>
+               
+                </div>
+            </div>
+            <div class="picture-item">
+                <img src="/forumhomepage.jpg">
+                <div class="textalign">
+                    <pre><h2>"Doubt Forum: Clearing Confusion Together!"</h2></pre>
+                    <pre><h3>"Engage with fellow enthusiasts and bombard them with your queries.
+Because why settle for inner peace when you can have 
+a constant stream of opinions?"</h3></pre>
+                </div>
+                
+                   
+               
+               
+            </div>
+        </div>
+    </div>
+    <centre>
+         <footer>
+        <pre>                                                                                   &copy;2024 Ctrl+Alt+Dlt</pre>
+        </footer>
+    </centre>
+</body>
+</html>

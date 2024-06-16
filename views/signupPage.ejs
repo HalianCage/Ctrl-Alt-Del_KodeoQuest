@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,  #28846b,  #8bc6b7,  #8fe3cc,  #8fc7b8,  #aaccc3);
+            background-size: 400% 400%;
+            animation: gradient 4s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background-color: #28846b;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .container img{
+            height: 120px;
+        }
+
+        .header h1 {
+            margin-bottom: 30px;
+            color: #fbfcfa;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #C1C8E4;
+            border-radius: 5px;
+        }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #5cad98;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .form-actions button:hover {
+            background-color: #55a691;
+        }
+
+        .toggle-link {
+            display: block;
+            margin-top: 15px;
+            color: #f9faf9;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 20px;
+        }
+        
+        a {
+            color: #474d4b;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="navBarLogo.png" alt="Logo">
+        </div>
+        <div id="forms">
+            <% if (typeof error !== 'undefined' && error.length > 0) { %>
+                <div class="error"><%= error %></div>
+            <% } %>
+            <% if (typeof success !== 'undefined' && success.length > 0) { %>
+                <div class="success"><%= success %></div>
+            <% } %>
+            <!-- Sign-Up Form Step 1 -->
+            <div id="signup-form-step1" class="form-group">
+                <center><h2>Create Your Profile</h2></center>
+                <form id="signup-form-step1-form" action="javascript:void(0);">
+                    <div class="form-group">
+                        <label for="signup-name">Name:</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-age">Age:</label>
+                        <input type="number" id="signup-age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-education">Education Level:</label>
+                        <select id="signup-education" name="education" required>
+                            <option value="school">School</option>
+                            <option value="high-school">High School</option>
+                            <option value="graduate">Graduate</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" onclick="showStep2()">Next</button>
+                    </div>
+                </form>
+                <a href="/loginPage">Already have an account? Login</a>
+            </div>
+
+            <!-- Sign-Up Form Step 2 -->
+            <div id="signup-form-step2" class="form-group" style="display: none;">
+                <form action="/auth/signup" method="POST">
+                    <!-- Hidden inputs to carry data from step 1 -->
+                    <input type="hidden" id="hidden-name" name="name">
+                    <input type="hidden" id="hidden-age" name="age">
+                    <input type="hidden" id="hidden-education" name="education">
+
+                    <div class="form-group">
+                        <label for="signup-username">Username:</label>
+                        <input type="text" id="signup-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email:</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" name="password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <span class="toggle-link" onclick="showStep1()">Back</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showStep2() {
+            const signupName = document.getElementById('signup-name').value;
+            const signupAge = document.getElementById('signup-age').value;
+            const signupEducation = document.getElementById('signup-education').value;
+
+            // Set hidden input values
+            document.getElementById('hidden-name').value = signupName;
+            document.getElementById('hidden-age').value = signupAge;
+            document.getElementById('hidden-education').value = signupEducation;
+
+            const signupFormStep1 = document.getElementById('signup-form-step1');
+            const signupFormStep2 = document.getElementById('signup-form-step2');
+
+            signupFormStep1.style.display = 'none';
+            signupFormStep2.style.display = 'block';
+        }
+
+        function showStep1() {
+            const signupFormStep1 = document.getElementById('signup-form-step1');
+            const signupFormStep2 = document.getElementById('signup-form-step2');
+
+            signupFormStep1.style.display = 'block';
+            signupFormStep2.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

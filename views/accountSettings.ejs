@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: 400% 400%;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #28846b;
+            padding: 10px 20px;
+        }
+        .navbar img {
+            height: 80px;
+            margin-left: 30px;
+        }
+        .navbar-left,
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right button {
+            background-color: #98c0b5;
+            color: white;
+            border: none;
+            padding: 10px 12px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 40px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        .navbar button:hover {
+            background-color: #658f84;
+        }
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #658f84;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #658f84;
+        }
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 90%;
+            height: 59%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .container h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .username {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .user-details {
+            margin-top: 10px;
+        }
+        .user-details p {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="navbar-left">
+        <img src="navBarLogo.png" alt="Logo">
+    </div>
+    <div class="navbar-right">
+        <button onclick="window.location.href='/main'">Home</button>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa-solid fa-user"></i> Profile</button>
+            <div class="dropdown-content">
+                <a href="/accountSettings">Account Settings</a>
+                <a href="/progressReport">Progress Report</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>Account Settings</h1>
+<!-- Account Settings Content -->
+<div class="container">
+    <div class="profile-info">
+        <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Profile Picture">
+        <div class="username"><%= user.username %></div>
+    </div>
+    <div class="user-details">
+        <p><strong>Name:</strong> <%= user.name %></p>
+        <hr>
+        <p><strong>Age:</strong> <%= user.age %></p>
+        <hr>
+        <p><strong>Education:</strong> <%= user.education %></p>
+        <hr>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>
