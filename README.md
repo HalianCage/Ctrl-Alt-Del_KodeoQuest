@@ -108,7 +108,7 @@ We gratefully acknowledge these resources for their contributions to the develop
 
 # License -
 
-This is private project and any unauthorised reproductions of this these project would be punishable by law.
+This is private project and any unauthorised reproductions of this project would be punishable by law.
 # Contact -   
 
 Kartik Shinde- kartik22311087@viit.ac.in
