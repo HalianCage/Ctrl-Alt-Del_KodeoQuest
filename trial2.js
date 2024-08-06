@@ -22,6 +22,9 @@ app.use(bodyParser.json());
 app.use('/Build', express.static(path.join(__dirname, 'Build')));
 app.use('/TemplateData', express.static(path.join(__dirname, 'TemplateData')));
 
+// Use 'public' directory to serve the Unity index.html and other static files
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
 
 app.use(session({
     secret: sessionSecret,
@@ -64,7 +67,7 @@ app.set('views', 'views');
 app.use(express.static('static_files'));
 
 // Home page
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
     res.render('preLoginPage');
 });
 
@@ -95,7 +98,7 @@ app.get('/games', (req, res) => {
 
 app.get('/game1', (req, res) => {
     // Unity WebGL build files are already being served statically
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname,'public', 'index.html'));
 });
 
 
